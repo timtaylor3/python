@@ -61,10 +61,6 @@ class SystemClass:
 			self.build = self.system_info[2]
 			self.service_pack =  self.system_info[3]
 			self.current_user = os.getlogin()
-		else:
-			# Need to exit for now
-			pass
-						
 
 	def getHostname(self):
 		return self.hostname
@@ -101,6 +97,18 @@ class SystemClass:
 			return True
 		else:
 			return False
+
+	def getBuild(self):
+		if self.isWindows():
+			return self.build
+		else:
+			return 'N/A'
+
+	def getServicePack(self):
+		if self.isWindows():
+			return self.service_pack
+		else:
+			return 'N/A'
 
 	def getSUDOUser(self):
 		if not self.sudo_user:
@@ -193,5 +201,6 @@ if __name__ == "__main__":
 		print(test.getDistro())
 		print(test.getDistroName())
 		print(test.getDistroVersion())
+		print(test.getBuild())
 		print(test.getCurrentUser())
 		print(test.IsRootUser())
