@@ -3,7 +3,7 @@
 This is a class that gets various system items that are used frequently.
 Nothing fancy
 Use at your own risk
-Tested on Ubuntu 14.04 x86_64 and 16.04 x86_64
+Tested on Ubuntu 16.04 x86_64
 Python 2.7 and Python 3.5
 """
 __author__ = "Tim Taylor"
@@ -39,8 +39,9 @@ class SystemClass:
 			else:
 				self.distro_name = 'Unknown Mac OS'
 			self.sudo_user = os.getenv('SUDO_USER')
+			self.sudo_user_home_dir = self.get_home_dir(self.current_user)
 			self.current_user = os.getenv('USER')
-
+			self.current_user_home_dir = self.get_home_dir(self.current_user)
 
 		elif self.system_os == 'Linux':
 			self.majorKernelVersion = self.system_info[1]
@@ -51,7 +52,9 @@ class SystemClass:
 			self.distro_version = self.system_info[7]
 			self.distro_name = self.system_info[8]
 			self.sudo_user = os.getenv('SUDO_USER')
+			self.sudo_user_home_dir = self.get_home_dir(self.sudo_user)
 			self.current_user = os.getenv('USER')
+			self.current_user_home_dir = self.get_home_dir(self.current_user)
 
 
 		elif self.system_os == 'Windows':
@@ -126,13 +129,22 @@ class SystemClass:
 		if self.sudo_user:
 			return getpwnam(self.getSUDOUser()).pw_gid
 		else:
-			return getpwnam(self.getCurrentUser()).pw_uid
+			return getpwnam(self.getCurrentUser()).pw_gid
 
 	def getCurrentUser(self):
 		return self.current_user
 
 	def getCurrentUserUID(self):
 		return getpwnam(self.getCurrentUser()).pw_uid
+
+	def getCurrentUserGID(self):
+		if self.sudo_user:
+			return getpwnam(self.getSUDOUser()).pw_gid
+		else:
+			return getpwnam(self.getCurrentUser()).pw_gid
+
+	def get_home_dir(self, user):
+		return os.path.expanduser('~')
 
 	def IsRootUser(self):
 		current_user = ''
@@ -176,31 +188,40 @@ if __name__ == "__main__":
 	test = SystemClass()
 
 	if test.isMac():
-		print(test.getHostname())
-		print(test.is64bit())
-		print(test.getSUDOUser())
-		print(test.getSUDOUserGID())
-		print(test.getSUDOUserUID())
-		print(test.getCurrentUser())
-		print(test.getCurrentUserUID())
-		print(test.getDistro())
-		print(test.getDistroName())
-		print(test.getDistroVersion())
-		print(test.IsRootUser())
+		print('Is this a Mac: {}'.format(test.isMac()))
+		print('The hostname is: {}'.format(test.getHostname()))
+		print('Is this a 64 bit OS: {}'.format(test.is64bit()))
+		print('If run as sudo, this is the sudo users name: {}'.format(test.getSUDOUser()))
+		print('If run as sudo, this is the sudo users GID: {}'.format(test.getSUDOUserGID()))
+		print('If run as sudo, this is the sudo users UID: {}'.format(test.getSUDOUserUID()))
+		print('This is the current user name: {}'.format(test.getCurrentUser()))
+		print('This is the current users UID: {}'.format(test.getCurrentUserUID()))
+		print('This is the current users GID: {}'.format(test.getCurrentUserGID()))
+		print('This is the Distro: {}'.format(test.getDistro()))
+		print('This is the Distro Name: {}'.format(test.getDistroName()))
+		print('This is the Distro Version: {}'.format(test.getDistroVersion()))
+		print('Was this run as root: {}'.format(test.IsRootUser()))
+		print('This ist the current users home directory: {}'.format(test.get_home_dir(test.getCurrentUser())))
 
 	elif test.isLinux():
-		print(test.getHostname())
-		print(test.isUbuntu())
-		print(test.is64bit())
-		print(test.getSUDOUser())
-		print(test.getSUDOUserGID())
-		print(test.getSUDOUserUID())
+		print('The hostname is: {}'.format(test.getHostname()))
+		print('This is the Distro: {}'.format(test.getDistro()))
+		print('Is this Ubuntu: {}'.format(test.isUbuntu()))
+		print('Is this a 64 bit OS: {}'.format(test.is64bit()))
+		print('If run as sudo, this is the sudo users name: {}'.format(test.getSUDOUser()))
+		print('If run as sudo, this is the sudo users GID: {}'.format(test.getSUDOUserGID()))
+		print('If run as sudo, this is the sudo users UID: {}'.format(test.getSUDOUserUID()))
+		print('This is the current user name: {}'.format(test.getCurrentUser()))
+		print('This is the current users UID: {}'.format(test.getCurrentUserUID()))
+		print('This is the current users GID: {}'.format(test.getCurrentUserGID()))
+		print('This ist the current users home directory: {}'.format(test.get_home_dir(test.getCurrentUser())))
 
 	elif test.isWindows():
-		print(test.getHostname())
-		print(test.getDistro())
-		print(test.getDistroName())
-		print(test.getDistroVersion())
-		print(test.getBuild())
-		print(test.getCurrentUser())
-		print(test.IsRootUser())
+		print('The hostname is: {}'.format(test.getHostname()))
+		print('This is the Distro: {}'.format(test.getDistro()))
+		print('This is the Distro Name: {}'.format(test.getDistroName()))
+		print('This is the Distro Version: {}'.format(test.getDistroVersion()))
+		print('This is the Windows Build: {}'.format(test.getBuild()))
+		print('This is the current user name: {}'.format(test.getCurrentUser()))
+		print('Was this run as root: {}'.format(test.IsRootUser()))
+		print('This ist the current users home directory: {}'.format(test.get_home_dir(test.getCurrentUser())))
