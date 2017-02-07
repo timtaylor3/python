@@ -13,7 +13,6 @@ __credit__ = ["Logging Cookbook", "The open source community"]
 
 import argparse
 import logging
-import os
 
 class LogClass():
 	def __init__(self, logname, debug_level=20):
@@ -31,15 +30,15 @@ class LogClass():
 		logging.getLogger('').addHandler(console)
 
 	def log(self, level='info', message=''):
-		if level == 'debug':
+		if level.lower() == 'debug':
 			logging.debug(message)
-		if level == 'info':
+		if level.lower() == 'info':
 			logging.info(message)
-		if level == 'warning':
+		if level.lower() == 'warning':
 			logging.warning(message)
-		if level == 'error':
+		if level.lower() == 'error':
 			logging.error(message)
-		if level == 'critical':
+		if level.lower() == 'critical':
 			logging.critical(message)
 
 if __name__ == "__main__":
