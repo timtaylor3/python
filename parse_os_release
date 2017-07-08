@@ -1,0 +1,16 @@
+# Parse /etc/os-release into a dictionary
+# Tested on CentOS 7 usint Python 2.7.5
+
+def parse_os_release(release_file):
+    os_release = {}
+    with open(release_file) as f:
+        for line in f:
+            if line.strip('\n') != "":
+                k,v = line.rstrip('\n').split("=")
+                os_release[k] = v
+    return os_release
+
+release_file='/etc/os-release'
+
+os_release = parse_os_release(release_file)
+print( os_release.get('PRETTY_NAME'))
