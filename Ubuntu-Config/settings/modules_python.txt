@@ -1,0 +1,36 @@
+# Comment out lines to skip installation
+# package name                  | Purpose           | Python 2 | Python 3
+analyzeMFT                      |                   | Yes      | Yes
+artifacts                       | GIFT              | Yes      | Yes
+bencode                         | GIFT              | Yes      | Yes
+bitstring                       |                   | Yes      | Yes
+construct                       | GIFT              | Yes      | Yes
+colorama                        |                   | Yes      | Yes
+distorm3                        |                   | Yes      | Yes
+dfdatetime                      | GIFT              | Yes      | Yes
+docopt                          |                   | Yes      | Yes
+dfvfs                           | GIFT              | Yes      | Yes
+dfwinreg                        | GIFT              | Yes      | Yes
+dpkt                            | GIFT              | Yes      | No
+efilter                         | GIFT              | Yes      | Yes
+imagemounter                    |                   | Yes      | Yes
+ioc_writer                      |                   | Yes      | Yes
+pefile                          |                   | Yes      | Yes
+psutil                          | GIFT              | Yes      | Yes
+pyaml                           | GIFT              | Yes      | Yes
+pycrypto                        | GIFT              | Yes      | Yes
+pytsk3                          | GIFT              | Yes      | Yes
+pytz                            | GIFT              | Yes      | Yes
+python-dateutil                 |                   | Yes      | Yes
+python-evtx                     |                   | Yes      | Yes
+python-magic                    |                   | Yes      | Yes
+python-registry                 |                   | Yes      | Yes
+setuptools                      |                   | Yes      | Yes
+requests                        | GIFT              | Yes      | Yes
+six                             | GIFT              | Yes      | Yes
+stix                            |                   | Yes      | Yes
+timesketch                      |                   | Yes      | Yes
+unicodecsv                      |                   | Yes      | Yes
+usnparser                       |                   | Yes      | Yes
+windowsprefetch                 |                   | Yes      | Yes
+xlsxwriter                      | GIFT              | Yes      | Yes

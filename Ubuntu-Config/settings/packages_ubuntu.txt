@@ -1,0 +1,223 @@
+# Any package installed from Repos's goes on this list.
+# All non-Ubuntu Repos should be added to the ubuntu-preconfigure.sh file
+# Don't add anything to this list with first testing it with sudo apt-get -y install package_name.
+# Don't add anything that requires human interaction.  Try to pre-seed the file before adding.
+# Preseeding information and the installation goes in the ubuntu-postconfigure.sh file
+# It might be useful to add a third column to track the repo
+# Comment out lines to skip installation
+# package name                  | Comment (optional field)
+aeskeyfind                      |
+afflib-tools                    | Forensic tool
+# afterglow                      | Won't install on 16.04 as of Feb 2, 2017 - SIFT - Xenial Dev
+aircrack-ng                     | a network software suite and analysis tool for 802.11 wireless LANs
+# apache2                         | Web server
+arp-scan                        |
+autopsy                         | Forensic tool
+bcrypt                          |
+# bitpim                          | Mobile Forensics tool, Won't install on 16.04 as of Feb 2, 2017 - SIFT - Xenial Dev
+# bitpim-lib                      | Mobile Forensics tool, Won't install on 16.04 as of Feb 2, 2017
+bkhive                          |
+bless                           |
+blt                             |
+build-essential                 | Developers tools
+# bulk-extractor                | Won't install on 16.04 as of Feb 2, 2017
+cabextract                      |
+ccrypt                          |
+clamav                          | AV scanner
+cmospwd                         |
+cryptcat                        |
+cryptsetup                      |
+curl                            | Downloader
+dc3dd                           |
+# dcfldd                          |
+driftnet                        |
+dsniff                          |
+# dumbpig                         | Won't install on 16.04 as of Feb 2, 2017
+e2fslibs-dev                    |
+ent                             |
+epic5                           |
+etherape                        |
+ettercap-graphical              |
+exfat-fuse                      |
+exfat-utils                     |
+exif                            |
+extundelete                     |
+fdupes                          |
+feh                             |
+flare                           |
+flasm                           |
+flex                            |
+foremost                        |
+g++                             |
+gawk                            |
+gcc                             |
+gdb                             |
+gdebi                           | gui install deb files
+gddrescue                       |
+ghex                            |
+git                             |
+# gitg                          | Need to test Git repository browser
+graphviz                        |
+gthumb                          |
+guymager                        |
+# gzrt                            | Won't install on 16.04 as of Feb 2, 2017
+# python-hachoir-metadata         | Won't install on 16.04 as of Feb 2, 2017
+# python-hachoir-urwid            | Won't install on 16.04 as of Feb 2, 2017
+# python-hachoir-wx               | Won't install on 16.04 as of Feb 2, 2017
+hexedit                         | Hex editor
+htop                            |
+hydra                           |
+hydra-gtk                       |
+ipython                         |
+kdiff3                          |
+knocker                         |
+kpartx                          |
+lft                             |
+libafflib-dev                   |
+# libavcodec-extra                | Unrestricted version of libavcodec
+# libafflib0                      | Won't install on 16.04 as of Feb 2, 2017
+# libbde                          | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libbde-tools                    | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libesedb                        | Won't install on 16.04 as of Feb 2, 2017
+# libesedb-tools                  | Won't install on 16.04 as of Feb 2, 2017
+# libevt                          | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libevt-tools                    | Won't install on 16.04 as of Feb 2, 2017
+# libevtx                         | Won't install on 16.04 as of Feb 2, 2017
+# libevtx-tools                   | Won't install on 16.04 as of Feb 2, 2017
+# libewf                          | Won't install on 16.04 as of Feb 2, 2017  - GIFT - Xenial Dev
+# libewf-dev                      |
+# libewf-python                   | Won't install on 16.04 as of Feb 2, 2017
+# libewf-tools                    | Won't install on 16.04 as of Feb 2, 2017
+# libfsntfs                     |  Won't install on 16.04 as of Feb 2, 2017- GIFT - Xenial Dev
+# libffi-dev                      |
+libfuse-dev                     |
+# libfwnt                       |  Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libfwsi                       |  Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libfvde                         | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libfvde-tools                   | Won't install on 16.04 as of Feb 2, 2017
+# liblightgrep                    | Won't install on 16.04 as of Feb 2, 2017
+# liblnk                        |  - GIFT - Xenial Dev
+# libmsiecf                       | Won't install on 16.04 as of Feb 2, 2017  - GIFT - Xenial Dev
+libncurses5-dev                 |
+libnet1                         |
+# libolecf                        | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+libparse-win32registry-perl     |
+# libpff                          | Won't install on 16.04 as of Feb 2, 2017
+# libpff-dev                      |
+# libpff-python                   | Won't install on 16.04 as of Feb 2, 2017
+# libpff-tools                    | Won't install on 16.04 as of Feb 2, 2017
+# libqcow                       |  Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libregf                         | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libregf-dev                     |
+# libregf-python                  | Won't install on 16.04 as of Feb 2, 2017
+# libregf-tools                   | Won't install on 16.04 as of Feb 2, 2017
+# libscca                       | Won't install on 16.04 as of Feb 2, 2017  - GIFT - Xenial Dev
+# libsigscan                    | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libsmdev                      | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libsmraw                      | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+libssl-dev                      | Won't install on 16.04 as of Feb 2, 2017
+# libtext-csv-perl                | Won't install on 16.04 as of Feb 2, 2017
+# libvhdi                       |  - GIFT - Xenial Dev
+# libvmdk                       |  - GIFT - Xenial Dev
+# libvshadow                      | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libvshadow-dev                  |
+# libvshadow-python               | Won't install on 16.04 as of Feb 2, 2017
+# libvshadow-tools                | Won't install on 16.04 as of Feb 2, 2017
+# libvslvm                      | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+# libwrc                        | Won't install on 16.04 as of Feb 2, 2017 - GIFT - Xenial Dev
+libxml2-dev                     |
+# maltegoce                       | Won't install on 16.04 as of Feb 2, 2017
+md5deep                         |
+#nautilus-dropbox                | Dropbox client, requires user input, but does not appear to halt the script.
+# nbd-client                      | Requires pre-seeding, I don't recommend installing with this script
+nbtscan                         |
+netcat                          |
+netpbm                          |
+netsed                          |
+netwox                          |
+nfdump                          |
+ngrep                           |
+nikto                           |
+okular                          |
+open-iscsi                      |
+openjdk-8-jdk                   |
+ophcrack                        | Password cracking utility
+ophcrack-cli                    | Password cracking utility
+outguess                        |
+p0f                             |
+p7zip-full                      | Compression utility
+pdftk                           |
+pev                             |
+phonon                          |
+# plaso                         | Causes package errors on 16.04 - GIFT - Xenial Dev
+pv                              |
+pyew                            |
+# python                          | Python v2 - Should be installed already
+python-dev                      |A dependency for some python modules
+python-dfvfs                    |
+# python-flowgrep                 | Won't install on 16.04 as of Feb 2, 2017
+python-fuse                     |
+python-nids                     |
+#python-ntdsxtract               | Won't install on 16.04 as of Feb 2, 2017
+python-pefile                    |
+# python-plaso                    |
+#python-pytsk3                   | Won't install on 16.04 as of Feb 2, 2017
+#python-qt4                      | Won't install on 16.04 as of Feb 2, 2017
+python-setuptools                | A dependency on for some python modules
+python-tk                       |
+# python-volatility               |
+python3-dev                      | A dependency on for some python modules
+python3-setuptools               | A dependency on for some python modules
+python-binplist               |  - GIFT - Xenial Dev
+qemu                            |
+qemu-utils                      |
+# radare                          | Won't install on 16.04 as of Feb 2, 2017
+# radare-gtk                      | Won't install on 16.04 as of Feb 2, 2017
+# radare2                         |
+rar                             |
+readpst                         |
+#regripper                       |  Won't install on 16.04 as of Feb 2, 2017
+rsakeyfind                      |
+safecopy                        |
+samba                           |
+samdump2                        |
+scalpel                         |
+sleuthkit                       | Forensics toolkit   - SIFT - Xenial Dev
+socat                           |
+ssdeep                          |
+ssldump                         |
+sslsniff                        |
+stunnel4                        |
+synaptic                         | Package manager
+system-config-samba             |
+tcl                             |
+tcpflow                         |
+tcpick                          |
+tcpreplay                       |
+tcpslice                        |
+tcpstat                         |
+tcptrace                        |
+tcptrack                        |
+tcpxtract                       |
+testdisk                        |
+tofrodos                        |
+#transmission                    | Bittorrent client, installed by default on 16.04
+# ubuntu-restricted-extras         | Codecs
+# unity-tweak-tool                | Change the look and feel of Unity
+# unity-control-center            | A graphical user interface to configure various aspects of Unity
+unrar                           | Compression Utility
+upx-ucl                         | Executable Packer
+vbindiff                        | Displays files in Hex or ASCII
+vim                             | Text editor
+# virtuoso-minimal                | a high-performance object-relational SQL database
+vmfs-tools                      | Tools to access VMFS filesystems
+volatility                      |  Memory Foresnics - SIFT - Xenial Dev
+# winbind                         | Active Directory client
+# wine                          | Requires pre-seeding, I don't recommend installing with this script
+wireshark-qt                    | Requires Pre-seeding
+# xdot                            | an interactive viewer for graphs
+# xfsprogs                        | Admin tools for adminstrating and debugning the XFS file system
+# xmount                          | xmount allows you to convert on-the-fly between multiple input and output harddisk image types
+xpdf                            | Open source pdf viewer
+yara                            | IOC finder tool
+zenity                          | Enables creation of various types of simple dialogs
