@@ -17,7 +17,7 @@ import sqlite3
 import sys
 
 __author__ = "Tim Taylor"
-__email__ = "jttaylor@us.ibm.com"
+__email__ = "timtaylor3@yahoo.com"
 __credits__ = ""
 __version__ = "1.1"
 __status__ = "Production"
