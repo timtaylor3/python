@@ -4,6 +4,7 @@ This script creates the base DB tables and ingests the base data (VxShare and NS
 Requires Python 3
 Tested on Windows 7 using Python 3.5.1 and 3.6.1
 RDS 2.56 was loaded with no unicode errors
+Source for VxShare can be found here:  http://a4lg.com/downloads/vxshare/index.en.html
 Only a good faith effort is made to ingest the lines from the NSRL file. The number of bad lines will be indicated if they occur.
 """
 
