@@ -1,0 +1,14 @@
+rule account_Signon : logon
+{
+    strings:
+        $keyword1 = "sign in" nocase
+        $keyword2 = "signin" nocase
+        $keyword3 = "logon" nocase
+        $keyword4 = "pasword" nocase
+        $keyword5 = "username" nocase
+        $keyword6 = "account name" nocase
+        $keyword7 = "userid" nocase
+
+    condition:
+       any of them
+}
