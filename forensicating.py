@@ -10,8 +10,12 @@
 # Added Last Shutdown Time and minor code clean up.
 
 TODO:  Re-Write as a class with output options
-    
-__credit__ = "Python Digital Forensics Cookbook: Effective Python recipes for digital investigations, by Preston Miller, Chapin Bryce"
+  
+__author__ = "Tim Taylor"
+__email__ = "timtaylor3@yahoo.com"
+__version__ = "0.1"
+__status__ = "Development"
+__credit__ = ["Glenn P. Edwards Jr","Python Digital Forensics Cookbook: Effective Python recipes for digital investigations, by Preston Miller, Chapin Bryce"
 
 import argparse
 import os
