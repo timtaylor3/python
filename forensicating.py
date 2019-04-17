@@ -8,18 +8,18 @@
 # (while at FireEye)
 # Updated by Tim Taylor 4-17-2019
 # Added Last Shutdown Time and minor code clean up.
-# Last Shutdown Time is broken.
 
-from __future__ import print_function
-from __future__ import unicode_literals
+__credit__ = "Python Digital Forensics Cookbook: Effective Python recipes for digital investigations, by Preston Miller, Chapin Bryce"
+
+# TODO:  Validate if Last Shutdown time is actualy UTC time.
 
 import argparse
-import datetime
 import os
+import platform
 import re
+import struct
 import time
 from Registry import Registry
-from Registry.RegistryParse import parse_windows_timestamp as _parse_windows_timestamp
 
 """
 Some repetitively used functions
@@ -35,16 +35,6 @@ def control_set_check(sys_reg):
     for v in key.values():
         if v.name() == "Current":
             return v.value()
-
-
-def parse_windows_timestamp(qword):
-    """
-    Parse Windows Timestamps
-    """
-    try:
-        return _parse_windows_timestamp(qword)
-    except ValueError:
-        return datetime.datetime.min
 
 
 def arch_check(sys_reg):
@@ -138,6 +128,14 @@ def user_reg_locs(user_path_locs):
     return user_ntuser_list
 
 
+def parse_windows_value(byte_array):
+    """
+    Environment Settings
+    """
+    raw_shutdown_time = struct.unpack('<Q', byte_array)
+    return Registry.RegistryParse.parse_windows_timestamp(raw_shutdown_time[0])
+
+
 """
 Leverage the above functions and do something cool with them
 """
@@ -217,17 +215,17 @@ def os_settings(sys_reg, soft_reg):
     key = registry.open(k)
     for v in key.values():
         if v.name() == "ShutdownTime":
-            # Need to decode value
-            os_dict['ShutdownTime'] = parse_windows_timestamp(v.value())
+            shutdown_time = parse_windows_value(v.value())
+            os_dict['ShutdownTime'] = shutdown_time.strftime('%a %b %d %H:%M:%S %Y (UTC)')
 
     print(("=" * 51) + "\n[+] Operating System Information\n" + ("=" * 51))
-    print("[-] Product Name.....: %s" % os_dict['ProductName'])
-    print("[-] Product ID.......: %s" % os_dict['ProductId'])
-    print("[-] CSDVersion.......: %s" % os_dict['CSDVersion'])
-    print("[-] Path Name........: %s" % os_dict['PathName'])
-    print("[-] Install Date.....: %s" % os_dict['InstallDate'])
-    print("[-] Registered Org...: %s" % os_dict['RegisteredOrganization'])
-    print("[-] Registered Owner : %s" % os_dict['RegisteredOwner'])
+    print("[-] Product Name.......: %s" % os_dict['ProductName'])
+    print("[-] Product ID.........: %s" % os_dict['ProductId'])
+    print("[-] CSDVersion.........: %s" % os_dict['CSDVersion'])
+    print("[-] Path Name..........: %s" % os_dict['PathName'])
+    print("[-] Install Date.......: %s" % os_dict['InstallDate'])
+    print("[-] Registered Org.....: %s" % os_dict['RegisteredOrganization'])
+    print("[-] Registered Owner.. : %s" % os_dict['RegisteredOwner'])
     print("[-] Last Shutdown Time : %s" % os_dict['ShutdownTime'])
 
 
@@ -334,7 +332,6 @@ def main(path):
     """
     Print out all of the information
     """
-
     sys_reg = os.path.join(path, "SYSTEM")
     soft_reg = os.path.join(path, "SOFTWARE")
     print("[+] SYSTEM hive:   %s" % sys_reg)
@@ -354,13 +351,9 @@ if __name__ == "__main__":
     parser.add_argument('-p', required=True, help='Path to Registry files', action='store')
 
     args = parser.parse_args()
-    main(args.p)
 
-    """
-    # If any issues resulting from making this v2 and v3 compatible, make this a Python3 only script.
-    import platform
     if int(platform.python_version()[0]) < 3:
         raise Exception('This script requires python 3')
     else:
         main(args.p)
-    """
+
