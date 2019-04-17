@@ -9,13 +9,8 @@
 # Updated by Tim Taylor 4-17-2019
 # Added Last Shutdown Time and minor code clean up.
 
-TODO:  Re-Write as a class with output options
-  
-__author__ = "Tim Taylor"
-__email__ = "timtaylor3@yahoo.com"
-__version__ = "0.1"
-__status__ = "Development"
-__credit__ = ["Glenn P. Edwards Jr","Python Digital Forensics Cookbook: Effective Python recipes for digital investigations, by Preston Miller, Chapin Bryce"
+__credit__ = "Python Digital Forensics Cookbook: Effective Python recipes for digital investigations, by Preston Miller, Chapin Bryce"
+
 
 import argparse
 import os
@@ -24,6 +19,8 @@ import re
 import struct
 import time
 from Registry import Registry
+from Registry.RegistryParse import parse_windows_timestamp
+
 
 """
 Some repetitively used functions
@@ -134,10 +131,11 @@ def user_reg_locs(user_path_locs):
 
 def parse_windows_value(byte_array):
     """
-    Convert the byte_array to a datetime variable
+    Convert byte_array to datetime variable
     """
+
     raw_shutdown_time = struct.unpack('<Q', byte_array)
-    return Registry.RegistryParse.parse_windows_timestamp(raw_shutdown_time[0])
+    return parse_windows_timestamp(raw_shutdown_time[0])
 
 
 """
@@ -336,6 +334,7 @@ def main(path):
     """
     Print out all of the information
     """
+    path = '/mnt/ewf/Win7Pro-VDI-3-ntfs/Windows/System32/config'
     sys_reg = os.path.join(path, "SYSTEM")
     soft_reg = os.path.join(path, "SOFTWARE")
     print("[+] SYSTEM hive:   %s" % sys_reg)
@@ -352,7 +351,7 @@ def main(path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Parse Registry')
-    parser.add_argument('-p', required=True, help='Path to Registry files', action='store')
+    parser.add_argument('-p', required=False, help='Path to Registry files', action='store')
 
     args = parser.parse_args()
 
