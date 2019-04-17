@@ -8,7 +8,7 @@
 # (while at FireEye)
 # Updated by Tim Taylor 4-17-2019
 # Added Last Shutdown Time and minor code clean up.
-# Last Shutdown Time needs validating.
+# Last Shutdown Time is broken.
 
 from __future__ import print_function
 from __future__ import unicode_literals
