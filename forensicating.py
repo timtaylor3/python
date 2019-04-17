@@ -351,7 +351,7 @@ def main(path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Parse Registry')
-    parser.add_argument('-p', required=False, help='Path to Registry files', action='store')
+    parser.add_argument('-p', required=True, help='Path to Registry files', action='store')
 
     args = parser.parse_args()
     main(args.p)
