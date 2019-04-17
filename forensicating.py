@@ -334,7 +334,6 @@ def main(path):
     """
     Print out all of the information
     """
-    path = '/mnt/ewf/Win7Pro-VDI-3-ntfs/Windows/System32/config'
     sys_reg = os.path.join(path, "SYSTEM")
     soft_reg = os.path.join(path, "SOFTWARE")
     print("[+] SYSTEM hive:   %s" % sys_reg)
@@ -351,7 +350,7 @@ def main(path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Parse Registry')
-    parser.add_argument('-p', required=False, help='Path to Registry files', action='store')
+    parser.add_argument('-p', required=True, help='Path to Registry files', action='store')
 
     args = parser.parse_args()
 
