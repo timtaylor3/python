@@ -130,7 +130,7 @@ def user_reg_locs(user_path_locs):
 
 def parse_windows_value(byte_array):
     """
-    Environment Settings
+    Convert the byte_array to a datetime variable
     """
     raw_shutdown_time = struct.unpack('<Q', byte_array)
     return Registry.RegistryParse.parse_windows_timestamp(raw_shutdown_time[0])
