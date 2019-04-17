@@ -9,9 +9,9 @@
 # Updated by Tim Taylor 4-17-2019
 # Added Last Shutdown Time and minor code clean up.
 
+TODO:  Re-Write as a class with output options
+    
 __credit__ = "Python Digital Forensics Cookbook: Effective Python recipes for digital investigations, by Preston Miller, Chapin Bryce"
-
-# TODO:  Validate if Last Shutdown time is actualy UTC time.
 
 import argparse
 import os
