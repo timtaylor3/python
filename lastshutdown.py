@@ -17,13 +17,11 @@ class Plugin(BasePlugin):
             return
 
         try:
-            value = self.convert_byte_value_dt(lastshutdown.value("ShutdownTime").value())
-            value.isoformat('T') + 'Z'
+            value = self.convert_byte_value_dt(key.value("ShutdownTime")).isoformat('T') + 'Z'
 
         except Registry.RegistryValueNotFoundException:
             value = "N/A"
 
-        value = key.value("ShutdownTime")
         yield PluginResult(key=key, value=value)
 
     def convert_byte_value_dt(byte_array):
