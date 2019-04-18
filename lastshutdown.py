@@ -13,7 +13,7 @@ class Plugin(BasePlugin):
     __REGHIVE__ = "SYSTEM"
 
     def run(self):
-        key = self.open_key(self.get_currentcontrolset_path() + "\\Services")
+        key = self.open_key(self.get_currentcontrolset_path() + "\\Control\\Windows")
         if not key:
             return
 
