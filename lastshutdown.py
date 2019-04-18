@@ -7,7 +7,7 @@ from regrippy import BasePlugin, PluginResult, mactime
 
 
 class Plugin(BasePlugin):
-    """List the last shutdown time"""
+    """Return the last shutdown time"""
     __REGHIVE__ = "SYSTEM"
 
     def run(self):
