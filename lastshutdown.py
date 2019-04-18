@@ -25,9 +25,7 @@ class Plugin(BasePlugin):
         yield PluginResult(key=key, value=value)
 
     def convert_byte_value_dt(byte_array):
-        """
-        Convert byte_array to datetime variable
-        """
+        """Convert byte_array to datetime variable"""
         raw_shutdown_time = struct.unpack('<Q', byte_array)
         return parse_windows_timestamp(raw_shutdown_time[0])
 
