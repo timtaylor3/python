@@ -12,7 +12,6 @@ import re
 from xml.etree import ElementTree
 
 __author__  = "Tim Taylor"
-__email__   = "jttaylor@us.ibm.com"
 __credits__ = ""
 __version__ = "1.0"
 __status__  = "Use at your own risk"
